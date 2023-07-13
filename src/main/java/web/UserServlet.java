@@ -47,7 +47,7 @@ public class UserServlet extends HttpServlet {
             }
 
             this.listUser(request, response);
-        } catch (SQLException var5) {
+        } catch (SQLException | ClassNotFoundException var5) {
             throw new ServletException(var5);
         }
     }
@@ -72,7 +72,7 @@ public class UserServlet extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
-    private void insertUser(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
+    private void insertUser(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ClassNotFoundException {
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String country = request.getParameter("country");
